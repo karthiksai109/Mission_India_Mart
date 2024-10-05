@@ -1,0 +1,19 @@
+.title_signin{
+    border:1px solid black;
+    padding:50px;
+    margin-left:400px;
+    border-radius: 10px;
+}
+#header{
+    margin-left:550px;
+    margin-top:0px;
+    color:orange;
+
+}
+#btn{
+    background-color: orange;
+    margin-top: 20PX;
+    border-radius: 5PX;
+    padding-right: 160px;
+    padding-left: 150px;
+}

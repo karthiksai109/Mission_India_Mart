@@ -1,0 +1,30 @@
+.title_sign{
+    border:1px solid black;
+    padding:20px;
+    padding-left:30px;
+    padding-right:30px;
+    margin-left:400px;
+    border-radius: 10px;
+}
+#heading{
+    margin-left:530px;
+    margin-top:0px;
+    color:orange;
+
+}
+.link{
+    padding-right:150px;
+    padding-left:150px;
+    background-color: orange;
+    margin-top:30px
+}
+input{
+    padding-left: 100px;
+    padding-top: 10px;
+    padding-right: 100px;
+}
+
+.outer{
+    padding: 20px;
+    align-items: center;
+}

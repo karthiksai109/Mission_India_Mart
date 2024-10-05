@@ -1,0 +1,19 @@
+.nav1{
+    border:1px solid black;
+    
+    display: flex;
+}
+.nava{
+    margin-right: 100px;
+}
+.nav2{
+    border:1px solid blue;
+    margin-bottom:400px
+
+}
+.nav3{
+    border:1px solid grey;
+}
+.nav4{
+    border:1px solid green;
+}
