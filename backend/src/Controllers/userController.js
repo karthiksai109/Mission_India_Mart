@@ -9,6 +9,7 @@ const { validateName, validateEmail, validateMobileNo, validatePassword, validat
 
 const registerUser = async function (req, res) {
 //   try {
+    res.setHeader("Access-Control-Allow-Origin","*")
       let body = req.body;
       console.log(body)
     //   if (body.address) {
@@ -114,6 +115,7 @@ const registerUser = async function (req, res) {
 //============Router handler for Login User===============
 const login = async function (req, res) {
   try {
+    res.setHeader("Access-Control-Allow-Origin","*")
       const body = req.body;
       let { email, password } = body;
 

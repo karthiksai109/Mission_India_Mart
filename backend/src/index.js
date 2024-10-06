@@ -2,10 +2,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const multer = require("multer");
 const route=require('./Routes/routes')
+const cors = require('cors')
 const app = express();
 
 app.use(express.json());
 app.use(multer().any());
+app.use(cors())
 
 mongoose.set("strictQuery", true);
 mongoose.connect("mongodb+srv://group21Database:f8HsIED1oiOyc6yi@karthikcluster.b2ikjot.mongodb.net/MissionIndiaMart",

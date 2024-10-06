@@ -15,31 +15,36 @@ function Home(){
   Navigate('/Login')
 
   }
-  function handlesubmit2(){
-    Navigate('/register')
-  
-    }
-    
-
 return(
     <div className="title">
-<h1 color='blue'>welcome to</h1>
-      <h2 height='100px' width='200px'>Indiamart</h2>
-      <div className="nav1">
-      <button className='link' onClick={handlesubmit1}>login
-      </button>
-      <button className='link' id='link' onClick={handlesubmit2}>signup</button>
 
- </div>
+
  <div className="nav1">
-<div className="nava">a1</div>
-<div className="nava">a2</div>
-<div className="nava">a3</div>
-<div className="nava">a4</div>
+<div className="nava">Indiamart</div>
+<div className="nava">
+<input className="navax" type="search" placeholder="search on Indiamart"></input>
 </div>
-<div className="nav2">b</div>
-<div className="nav3">c</div>
-<div className="nav4">d</div>
+<div className="nava">
+<button className='link1' onClick={handlesubmit1}>login
+      </button>
+</div>
+<div className="nava">cart</div>
+</div>
+<div className="nav2">
+<div className="nava">all</div>
+<div className="nava">menu</div>
+<div className="nava">best deals</div>
+</div>
+
+<div className="nav3">
+<div className="navc">name</div>
+<div className="navc">phone number</div>
+<div className="navc">gmail</div>
+</div>
+<div className="nav4">
+queries?
+</div>
+
 
 </div>
 )

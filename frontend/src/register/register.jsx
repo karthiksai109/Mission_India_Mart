@@ -98,7 +98,7 @@ else if(data.status===false && data.message=="Address is required."){
 else{
   
   window.alert(`response saved successfully , Thank you!`)
-  Navigate('/Home')
+  Navigate('/Login')
 }
   }
 

@@ -8,6 +8,11 @@ import './Login.css'
 
 function Login(){
     const Navigate=useNavigate()
+    function nav1(){
+      Navigate('/register')
+    }
+    
+
   const [user,setUser]=useState({
     email:'',
     password:'',
@@ -31,12 +36,11 @@ const postData=async(e)=>{
       email,password
     })
   })
+ 
 
   var data=await res.json()
   console.log(data)
   let Imparr=['email','password']
-
- 
 
 
 if(data.status===false && data.message=="email must be in String."){
@@ -70,6 +74,7 @@ else{
   window.alert(`register found`)
   Navigate('/Home')
 }
+  
   }
   return (
     <div>
@@ -93,6 +98,7 @@ else{
  
    </div>
    </div>
+   <input type="button" className="btnn" value="create account" onClick={nav1} id="btnN"/>
 
    </div>
         

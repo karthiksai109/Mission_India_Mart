@@ -1,18 +1,29 @@
 .nav1{
     border:1px solid black;
-    
+   
     display: flex;
 }
 .nava{
     margin-right: 100px;
+    margin-right:170px;
+   
+}
+.title{
+    padding:10px
 }
 .nav2{
     border:1px solid blue;
-    margin-bottom:400px
+    display: flex;;
+    margin-bottom:900px
 
 }
 .nav3{
     border:1px solid grey;
+    display:flex;
+    
+}
+.navc{
+    margin-right:170px;
 }
 .nav4{
     border:1px solid green;
