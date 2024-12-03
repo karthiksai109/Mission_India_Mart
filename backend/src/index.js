@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(multer().any());
 app.use(cors())
 
-mongoose.set("strictQuery", true);
+mongoose.set("strictQuery", false);
 mongoose.connect("mongodb+srv://group21Database:f8HsIED1oiOyc6yi@karthikcluster.b2ikjot.mongodb.net/MissionIndiaMart",
     
 )

@@ -1,114 +1,94 @@
-import React from "react";
-import { useState } from "react";
-import {useNavigate} from 'react-router-dom'
-import Register from "../register/register";
-import Home from "../Home/Home";
-import './Login.css'
 
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
+import './Login.css';
 
-function Login(){
-    const Navigate=useNavigate()
-    function nav1(){
-      Navigate('/register')
-    }
+const Login = () => {
+  const navigate = useNavigate();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        
+    
+        const response = await fetch('http://localhost:3000/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password }),
+      });
+  
+      const data = await response.json();
+  
+      if (response.ok) {
+          localStorage.setItem('user', JSON.stringify({ name: data.data.name, token: data.data.token }));
+          navigate('/');
+      } else {
+        window.alert('error!!!!!')
+          setError(data.message);
+      }
+    
+      };
+      const fetchUserData = async () => {
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (!user) return;
+    
+        const response = await fetch(`http://localhost:3000/user/${user.userId}`, {
+            headers: { Authorization: `Bearer ${user.token}` },
+        });
+    
+        const data = await response.json();
+        if (response.ok) {
+            console.log("User data:", data.data);
+        } else {
+            console.error(data.message);
+        }
+    };
     
 
-  const [user,setUser]=useState({
-    email:'',
-    password:'',
-})
-let name,value
-const handleInputs=(e)=>{
-  console.log(e)
-    name=e.target.name
-    value=e.target.value
-    setUser({...user,[name]:value})
-}
-const postData=async(e)=>{
-  e.preventDefault();
-  const {email,password}=user
-  const res=await fetch('http://localhost:3000/login',{
-    method:'POST',
-    headers:{
-      'Content-Type':"application/json",
-    },
-    body:JSON.stringify({
-      email,password
-    })
-  })
- 
+    return (
+      <div className='Body'>
+        <div className="login-container">
+            <div className="login-card">
+                <h1 className="login-header">Welcome to IndiaMart</h1>
+                <p className="login-subtitle">Sign in to continue shopping</p>
+                <form onSubmit={handleLogin}>
+                    <div className="input-group">
+                        <label htmlFor="email">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="input-group">
+                        <label htmlFor="password">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <button type="submit" className="login-button">Login</button>
+                </form>
+                <p>
+                    Don't have an account? <span onClick={() => navigate('/register')} className="link">Sign up here</span>
+                </p>
+            </div>
+        </div>
+        </div>
+    );
+};
 
-  var data=await res.json()
-  console.log(data)
-  let Imparr=['email','password']
+export default Login;
 
 
-if(data.status===false && data.message=="email must be in String."){
-  window.alert(`please enter valid email`)
-  Navigate('/Login')
-}
-else if(data.status===false && data.message=="Email is mandatory and can not be empty."){
-  window.alert(`please enter valid email`)
-  Navigate('/Login')
-}
 
-
-else if(data.status===false && data.message=="password must be in string"){
-  window.alert(`Password must be in string"`)
-  Navigate('/Login')
-}
-else if(data.status===false && data.message=="Password is mandatory and can not be empty."){
-  window.alert(`password is required.`)
-  Navigate('/Login')
-}
-else if(data.status===false && data.message=="No such user exist. Please Enter a valid Email and Passowrd."){
-  window.alert(`No such user exist. Please Enter a valid Email and Passowrd.`)
-  Navigate('/Login')
-}
-else if(data.status===false && data.message=="please provide correct credentials , Password is incorrect."){
-    window.alert(`please provide correct credentials , Password is incorrect.`)
-    Navigate('/Login')
-  }
-else{
-  
-  window.alert(`register found`)
-  Navigate('/Home')
-}
-  
-  }
-  return (
-    <div>
-    <h2 id='header'>India Mart</h2> 
-      <div className="title_signin">
-   
-   <div className="border_signin">
-   <div className="s">
-   <h3>Sign in</h3>
-   <h4>Email</h4>
-   <div className="input">
-   <input type="email" name="email" value={user.email} onChange={handleInputs} id="email"/>
-   </div>
-   <h4>Password</h4>
-   <div className="input">
-   <input type="password" name="password" value={user.password} onChange={handleInputs} id="password"/>
-   </div>
-   <div className="b" >
-
-   <button id="btn" onClick={postData}  >continue</button>
- 
-   </div>
-   </div>
-   <input type="button" className="btnn" value="create account" onClick={nav1} id="btnN"/>
-
-   </div>
-        
-  
-  </div>
-  </div>
-  )
-
-}
-
-export default Login
   
 
