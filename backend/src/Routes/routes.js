@@ -14,6 +14,7 @@ router.post("/login", login);
 router.get('/user/:userId/profile', isAuthentication, getUser);
 
 //==========API for Products======
+var user=[]
 router.post('/padd', async (req, res) => {
     try {
         const { name, category, price, description, imageUrl, stock } = req.body;
@@ -95,6 +96,8 @@ router.post('/cadd', async (req, res) => {
     }
 });
 
+
+
 // View Cart
 router.get('/:userId', async (req, res) => {
     try {
@@ -108,6 +111,10 @@ router.get('/:userId', async (req, res) => {
         res.status(500).json({ message: 'Error retrieving cart', error: error.message });
     }
 });
+
+
+
+
 // Set Budget
 router.post('/user/:userId/budget', isAuthentication, async (req, res) => {
     try {

@@ -1,43 +1,4 @@
-// import React from "react";
-// import "./Cart.css";
 
-// const Cart = ({ cartItems, deleteFromCart }) => {
-//     const totalAmount = cartItems.reduce(
-//         (total, item) => total + item.price * item.quantity,
-//         0
-//     );
-
-//     return (
-//         <div className="cart-container">
-//             <h2>Your Cart</h2>
-//             {cartItems.length === 0 ? (
-//                 <p>Your cart is empty.</p>
-//             ) : (
-//                 <div>
-//                     <ul>
-//                         {cartItems.map((item) => (
-//                             <li key={item._id} className="cart-item">
-//                                 <div className="item-details">
-//                                     {item.name} - Quantity: {item.quantity} - $
-//                                     {item.price * item.quantity}
-//                                 </div>
-//                                 <button
-//                                     className="delete-btn"
-//                                     onClick={() => deleteFromCart(item._id)}
-//                                 >
-//                                     Remove
-//                                 </button>
-//                             </li>
-//                         ))}
-//                     </ul>
-//                     <h3>Total: ${totalAmount.toFixed(2)}</h3>
-//                 </div>
-//             )}
-//         </div>
-//     );
-// };
-
-// export default Cart;
 
 import React from "react";
 import "./Cart.css";
@@ -47,16 +8,25 @@ import "./Cart.css";
 import { useNavigate } from 'react-router-dom'
 
 const Cart = ({ cartItems, deleteFromCart }) => {
+    console.log(cartItems)
     const navigate = useNavigate();
     const totalAmount = cartItems.reduce(
         (total, item) => total + item.price * item.quantity,
+
         0
     );
 
-    const handlePayment = () => {
-        // Payment logic here (e.g., redirect to a payment page)
-        alert("Redirecting to payment gateway...");
+    const handlePayment = async () => {
+      
+        
+         alert("Redirecting to payment gateway...");
+       
+
+       
         navigate('/')
+        window.location.reload();
+        
+        
     };
 
     return (
@@ -102,7 +72,9 @@ const Cart = ({ cartItems, deleteFromCart }) => {
                     </div>
                     <button className="make-payment" onClick={handlePayment}>
                         Make Payment
+                    
                     </button>
+                    
                 </div>
             )}
         </div>

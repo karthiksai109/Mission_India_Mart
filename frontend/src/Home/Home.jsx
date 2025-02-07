@@ -45,17 +45,15 @@ const [userName, setUserName] = useState('');
     return (
 
         <div className="home-container">
-            {/* Navigation Bar */}
-            <div className="nav-links">
-                    <button onClick={() => navigate('/')} className="nav-item">Home</button>
+             {/* Navigation Bar */}
+             <div className="nav-links">
+                     <button onClick={() => navigate('/')} className="nav-item">Home</button>
                     <button onClick={() => navigate('/login')} className="nav-item">Login</button>
-                    <button onClick={() => navigate('/register')} className="nav-item">Register</button>
-                </div>
+                   <button onClick={() => navigate('/register')} className="nav-item">Register</button>
+               </div>
             <nav className="nav-bar">
+
             <div className="logo">IndiaMart</div>
-           
-                
-                
             <div className="user-actions">
                 
                     <a href="#" className="nav-item">Home</a>
@@ -64,7 +62,6 @@ const [userName, setUserName] = useState('');
                     <a href="#about" className="nav-item">About Us</a>
                     <a href="#contact" className="nav-item">Contact</a>
                     
-                   
                 </div>
             
                 <div className="nav-links">
@@ -80,7 +77,6 @@ const [userName, setUserName] = useState('');
                 ) : (
                     <button onClick={handleLogout} className="auth-button">Logout</button>
                 )}
-                    <button className="cart-button">Cart ({cart.length})</button>
                 </div>
             </nav>
 
@@ -118,7 +114,7 @@ const [userName, setUserName] = useState('');
 
             {/* Footer */}
             <footer className="footer">
-                <p>© 2024 IndiaMart. All rights reserved.</p>
+                <p>© 2025 IndiaMart. All rights reserved.</p>
             </footer>
         </div>
     );
