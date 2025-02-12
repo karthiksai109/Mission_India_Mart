@@ -242,3 +242,7 @@ input{
         font-size: 14px;
     }
 }
+
+.error-message{
+    color: hsl(22, 100%, 51%);
+}

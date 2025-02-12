@@ -1,6 +1,6 @@
 # IndiaMart - Your One-Stop Indian Marketplace
 
-![IndiaMart Banner](https://yourimageurl.com)
+![IndiaMart Banner]https://raw.githubusercontent.com/karthiksai109/Mission_India_Mart/main/image.png
 
 ## 📌 Overview
 IndiaMart is a web-based marketplace catering to the Indian community in Dayton, Ohio. The platform allows users to buy Indian food, traditional clothes, kitchen items, and meats. It features a **pre-budget planning tool**, helping customers find products within their specified budget.

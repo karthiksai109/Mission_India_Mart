@@ -43,7 +43,7 @@ const Register = () => {
                 <div className="login-card">
                     <h1 className="login-header">Welcome to IndiaMart</h1>
                     <p className="login-subtitle">Create your account to start shopping</p>
-                    {error && <p className="error-message">{error}</p>}
+                    {error && <p  className="error-message">{error}</p>}
                     {success && <p className="success-message">Registration successful! Redirecting...</p>}
                     <form onSubmit={handleRegister}>
                         <div className="input-group">

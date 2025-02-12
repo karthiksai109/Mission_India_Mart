@@ -17,8 +17,37 @@ const registerUser = async function (req, res) {
 
         if (Object.keys(body).length === 0) {
             return res.status(400).send({ status: false, message: "Request body can't be empty." });
+        }// if you havent entered any feild
+        else if(!fname){
+            return res.status(400).send({status:false,message:'please enter firstname'})
+        }
+        else if(!validateName(fname)) {
+            return res.status(400).send({ status: false, message: "please enter valid firstname" });
+        }
+        else if(!lname){
+            return res.status(400).send({status:false,message:'please enter lastname'})
+        }
+        else if(!validateName(lname)){
+            return res.status(400).send({status:false,message:'please enter valid lastname'})
+        }
+        else if(!email){
+            return res.status(400).send({status:false,message:'please enter email'})
+        }
+        else if(!validateEmail(email)){
+            return res.status(400).send({status:false,message:'please enter valid email'})
+        }
+        else if(!password){
+            return res.status(400).send({status:false,message:'please enter password'})
+        }
+        else if(!validatePassword(password)){
+            return res.status(400).send({status:false,message:'please enter valid password'})
         }
 
+
+        else if(!address){
+            return res.status(400).send({status:false,message:'please enter address'})
+        }
+       
         // Validations here (skipped for brevity)
 
         // Hash the password before saving
